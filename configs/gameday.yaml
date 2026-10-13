@@ -33,8 +33,8 @@ client:
   min_time_left_s: 1.0              # don't start an attempt that cannot finish
   backoff_base_s: 0.25
   backoff_cap_s: 4.0
-  retry_budget_ratio: 0.1           # retries <= ~10% of first attempts
-  retry_budget_min_per_s: 0.5
+  retry_budget_ratio: 0.05          # retries <= ~5% of first attempts ...
+  retry_budget_min_per_s: 0.25      # ... + 0.25/s floor: worst case ~0.08 at 8 calls/s, under the 0.10 bar
   retry_budget_max_tokens: 20
   quota_cooldown_s: 300
   breaker:
@@ -49,11 +49,10 @@ client:
 
 # ----------------------------------------------------------------------------
 # Part G: YOUR semantic cache settings (read by SemanticCache).
-# These starter values are deliberately naive: run `make cache`, read
-# wrong_answers_by_reason, tune each value and justify it in report section 8.
+# Tuned on tape C1 — every value is justified with numbers in report section 8.
 # ----------------------------------------------------------------------------
 cache:
-  similarity_threshold: 0.80
-  ttl_s: 600
-  max_stale_s: 0
+  similarity_threshold: 0.90        # paraphrases >= 0.95, near-miss intents <= 0.86
+  ttl_s: 30                         # only bound on unannounced changes (outdated_answers)
+  max_stale_s: 300                  # stale-if-error must outlast an outage (120 s on C1)
   max_entries: 500
