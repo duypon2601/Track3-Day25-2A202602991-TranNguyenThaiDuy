@@ -1,6 +1,6 @@
 # Lab 25B — Report
 
-**Họ tên / nhóm:** Tran Nguyen Thai Duy — MSV 2A202602991  **Commit:** _(điền hash sau khi commit bài nộp)_  **Điểm tự động (`make grade`):** 84 / 88 (4 điểm còn lại là dữ liệu SLO ẩn, giảng viên chấm)
+**Họ tên / nhóm:** Tran Nguyen Thai Duy — MSV 2A202602991  **Commit:** `bcc77a2`  **Điểm tự động (`make grade`):** 84 / 88 (4 điểm còn lại là dữ liệu SLO ẩn, giảng viên chấm)
 
 > Số liệu lấy từ `reports/gameday/*.json`, `reports/cache/*.json`, `reports/workflows.json`, `reports/slo.json`
 > (seed 25). Các thí nghiệm ở mục 3 và 8 chạy lại cùng băng, chỉ đổi đúng tham số được nêu.
